@@ -1,6 +1,10 @@
 #N canvas 181 120 450 300 12;
-#X obj 68 109 eavi-emg;
-#X obj 43 222 send CV1;
-#X obj 117 221 send CV0;
+#X declare -path .;
+#X declare -path lib;
+#X obj 304 125 eavi-emg;
+#X obj 279 238 send CV1;
+#X obj 353 237 send CV0;
+#X obj 18 46 declare -path .;
+#X obj 19 72 declare -path lib;
 #X connect 0 0 1 0;
 #X connect 0 1 2 0;
