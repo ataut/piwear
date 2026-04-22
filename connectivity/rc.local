@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#start od with alsa, alsa midi, 1 midi device in, audiodevice 1, no gui etc
+pd -alsamidi -alsa -midiindev 1 -audiodev 1 -listdev -nogui -stderr /home/pi/Documents/Pd/connectivity_test.pd &
+
+#wait for start up
+sleep 2
+
+#now connect audio
+aconnect 128:0 129:0

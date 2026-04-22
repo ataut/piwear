@@ -1,0 +1,100 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue0;\red9\green79\blue209;
+\red69\green60\blue204;\red20\green160\blue194;\red29\green184\blue14;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0\cname textColor;\cssrgb\c0\c0\c0;\cssrgb\c0\c40784\c85490;
+\cssrgb\c34510\c33725\c83922;\cssrgb\c0\c68627\c80392;\cssrgb\c7059\c75294\c5490;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf2 From: Nathan Adams <N.Adams@gold.ac.uk>\
+Subject: Re: Starting PD from the command line for your demo\
+Date: 21 April 2026 at 09:49:58 BST\
+To: Atau Tanaka <a.tanaka@gold.ac.uk>\
+Cc: Federico Visi <f.visi@udk-berlin.de>\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs26 \cf3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Throw in Houdini / Touch designer workflow and I\'92m all over the place some days.\
+\
+Thats working, and I can currently start the script ok, by copying it to /etc/rc.local (you need to do as sudo, and you need to make sure your patch is specified as a full path, not use ~ for home, as it runs outside of your user process.\
+\
+I\'92m just checking the Bluetooth connection and mapping, which for my small patch is a bit of an issue as I\'92m printing things out (and I need to see if I can see the std err output for anything started by rc.local) - however can see the connection - I had the EAVI powered up before the Pi, which I suspect is key, as have a 2 second window during the script for the connection to exist, otherwise the aconnect command will fail.\
+\
+  \
+\
+I\'92ll try and put together a systemd wrapper for staring PD - as this will give us more flexibility on when it starts, and be able to monitor any messages etc.\
+\
+In mean time, slightly revised script attached which you can modify for your patch, and updated patch for reference. (See this handy article on autostart things\'a0{\field{\*\fldinst{HYPERLINK "https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Flearn.sparkfun.com%2Ftutorials%2Fhow-to-run-a-raspberry-pi-program-on-startup%2Fall&data=05%7C02%7Ca.tanaka%40gold.ac.uk%7C57ff1bd28cc74db3d7ee08de9f82f7b1%7C0d431f3f20c1461c958a46b29d4e021b%7C0%7C0%7C639123582021419125%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=B2Hb6jWXyqJ97PdzaUO82Zn9kWjx2Zop0ciFzDpf6AE%3D&reserved=0"}}{\fldrslt \cf4 \ul \ulc4 \strokec4 https://learn.sparkfun.com/tutorials/how-to-run-a-raspberry-pi-program-on-startup/all}})\
+\
+\
+\
+\
+\
+\
+Be interested to see what you think about the auto start up, and if there is still a role for some sort of button input to make the connection - as feels like it gives a bit more flexibility for board not yet started, initiate reconnection etc.\
+\
+Am around today if you need any help getting ready for the workshop.\
+\
+n\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 \strokec5 On 20 Apr 2026, at 16:41, Atau Tanaka <a.tanaka@gold.ac.uk> wrote:\
+\
+yes - ; dsp is the message for Max. ; pd for PureData - always confusing keeping track of the two!\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.gold.ac.uk%2Fcomputing%2Fpeople%2Ftanaka-atau%2F&data=05%7C02%7Ca.tanaka%40gold.ac.uk%7C57ff1bd28cc74db3d7ee08de9f82f7b1%7C0d431f3f20c1461c958a46b29d4e021b%7C0%7C0%7C639123582021471147%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=lqFWy4%2F3%2B4%2FmnCfCsY%2BrNKsH%2FfPQrOCWrUn2n3%2F8vuY%3D&reserved=0"}}{\fldrslt \cf4 \ul \ulc4 \strokec4 >}}\
+\
+\pard\pardeftab720\partightenfactor0
+\cf6 \strokec6 On 20 Apr 2026, at 16:40, Nathan Adams <N.Adams@gold.ac.uk> wrote:\
+\
+Aha. Yea I thought there was something like that, I\'92d missed the pd object and was looking for a dsp one.\'a0\
+\
+Thank you. Will try that shortly.\'a0\
+\
+Nathan\
+\
+\pard\pardeftab720\partightenfactor0
+\cf7 \strokec7 On 20 Apr 2026, at 4:30\uc0\u8239 pm, Atau Tanaka <a.tanaka@gold.ac.uk> wrote:\
+\
+\uc0\u65279 \
+<1537363924620-capture.jpg>\
+\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.gold.ac.uk%2Fcomputing%2Fpeople%2Ftanaka-atau%2F&data=05%7C02%7Ca.tanaka%40gold.ac.uk%7C57ff1bd28cc74db3d7ee08de9f82f7b1%7C0d431f3f20c1461c958a46b29d4e021b%7C0%7C0%7C639123582021513446%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=WLDXJDItyeSMsI1UYLz4X8H6eB%2BErbtGMwN%2FfCGwsVQ%3D&reserved=0"}}{\fldrslt \cf4 \ul \ulc4 \strokec4 >}}\
+\
+\pard\pardeftab720\partightenfactor0
+\cf7 On 20 Apr 2026, at 16:14, Nathan Adams <N.Adams@gold.ac.uk> wrote:\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs29\fsmilli14667 \cf7 Hi\
+\
+I\'92ve had some success with this - but I can\'92t get audio working for some reason, @Frederico - any thoughts on this - I\'92ve looked at your shell script for WearPi, and I can\'92t see anything especially different, don\'92t know if you have had any issues with this.\
+\
+\
+\
+Here\'92s the test patch I created - it outputs (or should!) a sine wave generated by PD and passes through any signal coming in from the DAC, as well as printing MIDI data. It works from the desktop, but can\'92t get it to work from command line (though it will start printing out MIDI data, so that bit works).\
+\
+The script starts this patch, sleeps for 2s (to let PD start) then maps the MIDI across (so you should start the EAVI before the PI, so it connects).\
+\
+\
+\
+\
+I\'92ll send details later for automating the script for startup - and I\'92ll test the sequencing and make sure we get enough time for the EAVI to pair - but wanted to get my lack of sound out there in case I\'92m missing something obvious. \
+\
+n\
+\pard\pardeftab720\partightenfactor0
+
+\fs26 \cf7 <auto_start.sh><connectivity_test.pd>\
+\
+\pard\pardeftab720\partightenfactor0
+\cf6 \strokec6 <1537363924620-capture.jpg>\
+\pard\pardeftab720\partightenfactor0
+\cf5 \strokec5 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+}
