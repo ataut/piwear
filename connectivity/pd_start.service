@@ -1,0 +1,11 @@
+[Unit]
+Description=Run PD on Startup
+After=multi-user.target
+
+[Service]
+ExecStart=/home/pi/Documents/Pd/scripts/auto_start.sh
+
+[Install]
+WantedBy=multi-user.target
+
+
