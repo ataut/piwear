@@ -1,4 +1,4 @@
-#N canvas 564 34 1211 869 12;
+#N canvas 259 37 1211 869 12;
 #X declare -path .;
 #X declare -path sounds;
 #X declare -path lib;
@@ -19,10 +19,12 @@
 #X msg 168 221 verbose 0;
 #X obj 168 245 s bela_setMidi;
 #X obj 168 190 r loadbang;
+#X msg 53 86 \; pd dsp 1;
 #X connect 1 0 0 0;
 #X connect 2 0 3 0;
 #X connect 6 0 8 0;
 #X connect 8 0 7 0;
+#X connect 8 0 15 0;
 #X connect 9 0 2 0;
 #X connect 10 0 1 0;
 #X connect 11 0 8 0;
@@ -542,7 +544,7 @@
 #X obj 573 639 vu 19 200 empty empty -1 -10 0 12 #404040 #000000 1 0;
 #X obj 805 566 loadbang;
 #X obj 623 639 vu 19 200 empty empty -1 -10 0 12 #404040 #000000 1 0;
-#X obj 806 645 vsl 20 128 -99 18 0 1 \$0-gain gain gain -7 -18 0 14 #fca85c #000000 #000000 11072 1;
+#X obj 806 645 vsl 20 128 -99 18 0 1 \$0-gain gain gain -7 -18 0 14 #fca85c #000000 #000000 10855 1;
 #X floatatom 806 781 5 0 0 1 _db - - 0;
 #X obj 716 518 hsl 128 15 -1 1 0 1 empty wetdry empty -2 -6 0 8 #000000 #fc9000 #000000 10263 0;
 #X obj 716 537 hsl 128 15 -1 1 0 1 empty pan empty -2 -6 0 8 #fce014 #000000 #000000 6500 1;
@@ -636,7 +638,7 @@
 #X floatatom 258 135 5 0 0 0 - - - 0;
 #X obj 258 39 inlet;
 #X text 251 10 dry/wet;
-#X obj 396 61 vsl 20 128 -99 18 0 1 \$0-gain empty gain -7 -18 0 14 #fca85c #000000 #000000 11072 1;
+#X obj 396 61 vsl 20 128 -99 18 0 1 \$0-gain empty gain -7 -18 0 14 #fca85c #000000 #000000 10855 1;
 #X floatatom 397 197 5 0 0 1 _db - - 0;
 #X obj 105 311 outlet;
 #X obj 242 311 outlet;
@@ -1054,7 +1056,7 @@
 #X obj 813 154 vsl 16 100 0 1 0 0 empty empty empty 0 -9 0 12 #c6ffc7 #000000 #000000 0 1;
 #X obj 792 107 r cv6;
 #X obj 813 129 r cv7;
-#N canvas 1207 519 821 271 mappings 0;
+#N canvas 649 519 821 271 mappings 0;
 #N canvas 63 100 955 696 presets 0;
 #X msg 35 157 \; play-cloud 0 1000 1000 -400;
 #X msg 35 205 \; play-cloud 0 1000 500 -400;

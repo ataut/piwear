@@ -1,4 +1,4 @@
-#N canvas 301 37 1076 774 12;
+#N canvas 365 37 1076 774 12;
 #X declare -path .;
 #X declare -path sounds;
 #X declare -path lib;
@@ -10,9 +10,9 @@
 #X obj 650 373 s rndm;
 #X floatatom 650 313 4 0 0 0 - - - 0;
 #X text 557 623 msp Granular Synthesis;
-#N canvas 0 22 450 300 (subpatch) 0;
+#N canvas 121 158 450 300 (subpatch) 0;
 #X array playobject 271255 float 0;
-#X coords 0 1 271254 -1 200 140 1;
+#X coords 0 300 1 299 200 140 0;
 #X restore 182 255 graph;
 #X floatatom 781 343 10 0 0 0 - - - 0;
 #N canvas 58 54 957 483 sampleloader 0;
@@ -180,12 +180,10 @@
 #X obj 290 100 r loadbang;
 #X obj 172 98 r loadbang;
 #X obj 108 13 inlet;
-#X msg 60 91 \; pd dsp 1;
 #X connect 1 0 0 0;
 #X connect 2 0 3 0;
 #X connect 6 0 8 0;
 #X connect 8 0 7 0;
-#X connect 8 0 12 0;
 #X connect 9 0 2 0;
 #X connect 10 0 1 0;
 #X connect 11 0 8 0;
